@@ -10,17 +10,34 @@
       <h2>The Great</h2>
       <h1 id="header-clue">rgb(xxx,xxx,xxx)</h1>
       <h2>Guessing Game</h2>
+      <h4 id="tries">Number of Tries: </h4>
+      <h4 id="count"></h4>
+      <button type="submit" onClick="refreshPage()" id="heh">New Game</button>
     </div>
     <div id="container">
       <div class="tile" id="1"></div>
       <div class="tile" id="2"></div>
+      <div class="tile" id="3"></div>
+      <div class="tile" id="4"></div>
+      <div class="tile" id="5"></div>
+      <div class="tile" id="6"></div>
     </div>
 
     <script>
       var t1 = document.getElementById("1");
       var t2 = document.getElementById("2");
+      var t3 = document.getElementById("3");
+      var t4 = document.getElementById("4");
+      var t5 = document.getElementById("5");
+      var t6 = document.getElementById("6");
       var x;
+      var count;
+      var won;
       var correctColor;
+
+      function refreshPage(){
+        window.location.reload();
+      } 
 
       function getRandomColor() {
         var letters = "0123456789ABCDEF";
@@ -34,33 +51,147 @@
       function newGame() {
         t1.style.background = getRandomColor();
         t2.style.background = getRandomColor();
+        t3.style.background = getRandomColor();
+        t4.style.background = getRandomColor();
+        t5.style.background = getRandomColor();
+        t6.style.background = getRandomColor();
 
-        x = Math.floor(Math.random() * 2 + 1);
+        x = Math.floor(Math.random() * 6 + 1);
+        count = 0;
+        won = 0;
 
         if (x == 1) correctColor = t1.style.background;
-        else correctColor = t2.style.background;
+        if (x == 2) correctColor = t2.style.background;
+        if (x == 3) correctColor = t3.style.background;
+        if (x == 4) correctColor = t4.style.background;
+        if (x == 5) correctColor = t5.style.background;
+        if (x == 6) correctColor = t6.style.background;
+        
         /* console.log(x);
         console.log(correctColor); */
 
         document.getElementById("header-clue").innerHTML = correctColor;
+        document.getElementById("count").innerHTML = count;
       }
 
       t1.addEventListener("click", function () {
         if (t1.style.background == correctColor) {
-          t2.style.background = correctColor;
+          var all = document.getElementsByClassName('tile');
+          for (var i = 0; i < all.length; i++) {
+            all[i].style.background = correctColor;
+          }
           document.getElementById("header").style.background = correctColor;
+          document.getElementById("heh").style.background = correctColor;
+          if (won == 0) {
+            won = 1;
+            count++;
+            document.getElementById("count").innerHTML = count;
+          }
         } else {
           t1.style.background = "black";
+          count++;
+          document.getElementById("count").innerHTML = count;
         }
       });
 
       t2.addEventListener("click", function () {
         if (t2.style.background == correctColor) {
-          t1.style.background = correctColor;
+          var all = document.getElementsByClassName('tile');
+          for (var i = 0; i < all.length; i++) {
+            all[i].style.background = correctColor;
+          }
           document.getElementById("header").style.background = correctColor;
+          document.getElementById("heh").style.background = correctColor;
+          if (won == 0) {
+            won = 1;
+            count++;
+            document.getElementById("count").innerHTML = count;
+          }
         } else {
           t2.style.background = "black";
+          count++;
+          document.getElementById("count").innerHTML = count;
         }
+      });
+      
+      t3.addEventListener("click", function () {
+        if (t3.style.background == correctColor) {
+          var all = document.getElementsByClassName('tile');
+          for (var i = 0; i < all.length; i++) {
+            all[i].style.background = correctColor;
+          }
+          document.getElementById("header").style.background = correctColor;
+          document.getElementById("heh").style.background = correctColor;
+          if (won == 0) {
+            won = 1;
+            count++;
+            document.getElementById("count").innerHTML = count;
+          }
+        } else {
+          t3.style.background = "black";
+          count++;
+          document.getElementById("count").innerHTML = count;
+        }
+      });
+
+      t4.addEventListener("click", function () {
+        if (t4.style.background == correctColor) {
+          var all = document.getElementsByClassName('tile');
+          for (var i = 0; i < all.length; i++) {
+            all[i].style.background = correctColor;
+          }
+          document.getElementById("header").style.background = correctColor;
+          document.getElementById("heh").style.background = correctColor;
+          if (won == 0) {
+            won = 1;
+            count++;
+            document.getElementById("count").innerHTML = count;
+          }
+        } else {
+          t4.style.background = "black";
+          count++;
+          document.getElementById("count").innerHTML = count;
+        }
+      });
+      
+      t5.addEventListener("click", function () {
+        if (t5.style.background == correctColor) {
+          var all = document.getElementsByClassName('tile');
+          for (var i = 0; i < all.length; i++) {
+            all[i].style.background = correctColor;
+          }
+          document.getElementById("header").style.background = correctColor;
+          document.getElementById("heh").style.background = correctColor;
+          if (won == 0) {
+            won = 1;
+            count++;
+            document.getElementById("count").innerHTML = count;
+          }
+        } else {
+          t5.style.background = "black";
+          count++;
+          document.getElementById("count").innerHTML = count;
+        }
+      });
+
+      t6.addEventListener("click", function () {
+        if (t6.style.background == correctColor) {
+          var all = document.getElementsByClassName('tile');
+          for (var i = 0; i < all.length; i++) {
+            all[i].style.background = correctColor;
+          }
+          document.getElementById("header").style.background = correctColor;
+          document.getElementById("heh").style.background = correctColor;
+          if (won == 0) {
+            won = 1;
+            count++;
+            document.getElementById("count").innerHTML = count;
+          }
+        } else {
+          t6.style.background = "black";
+          count++;
+          document.getElementById("count").innerHTML = count;
+        }      
       });
     </script>
   </body>
